@@ -1,42 +1,39 @@
 package com.spring.boot.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
 public class Role {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String role;
+	@Enumerated(EnumType.STRING)
+	@Column(length = 20)
+	private ERole name;
 
-    public Role() {
-    }
+	public Role() {
 
-    public Role(String role) {
-        this.role = role;
-    }
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public Role(ERole name) {
+		this.name = name;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public String getRole() {
-        return role;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setRole(String role) {
-        this.role = role;
-    }
+	public ERole getName() {
+		return name;
+	}
 
-    
+	public void setName(ERole name) {
+		this.name = name;
+	}
 }
