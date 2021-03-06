@@ -1,6 +1,6 @@
 package com.spring.boot.config.security.jwt;
 
-import com.spring.boot.entities.UserDetailsImpl;
+import com.spring.boot.services.UserDetailsImpl;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
-
+ 
 import io.jsonwebtoken.*;
 
 @Component
