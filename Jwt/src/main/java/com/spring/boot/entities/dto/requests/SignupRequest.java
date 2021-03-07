@@ -7,27 +7,23 @@ import javax.validation.constraints.*;
 public class SignupRequest {
 
     @NotBlank
-    @Size(min = 3, max = 20)
-    private String username;
-
-    @NotBlank
     @Size(max = 50)
     @Email
     private String email;
 
     @NotBlank
     @Size(min = 6, max = 40)
-    private String password;
+    private String password; 
     
+    @NotNull
+    @Size(min = 1, max = 255) 
+    private String firstName;
+    
+    @NotNull
+    @Size(min = 1, max = 255) 
+    private String lastName;
+
     private Set<String> role;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public String getEmail() {
         return email;
@@ -44,6 +40,22 @@ public class SignupRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public Set<String> getRole() {
         return this.role;
@@ -53,15 +65,8 @@ public class SignupRequest {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("SignupRequest{username=").append(username);
-        sb.append(", email=").append(email);
-        sb.append(", role=").append(role);
-        sb.append(", password=").append(password);
-        sb.append('}');
-        return sb.toString();
-    }
+    
+
+    
 
 }
