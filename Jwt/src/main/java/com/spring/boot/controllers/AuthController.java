@@ -84,7 +84,7 @@ public class AuthController {
                 encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getFirstName(),
                 signUpRequest.getLastName());
-        userRepository.save(user);
+        //userRepository.save(user);
         return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
     }
 }
