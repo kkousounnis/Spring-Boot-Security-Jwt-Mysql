@@ -13,14 +13,14 @@ public class SignupRequest {
 
     @NotBlank
     @Size(min = 6, max = 40)
-    private String password; 
-    
+    private String password;
+
     @NotNull
-    @Size(min = 1, max = 255) 
+    @Size(min = 1, max = 255)
     private String firstName;
-    
+
     @NotNull
-    @Size(min = 1, max = 255) 
+    @Size(min = 1, max = 255)
     private String lastName;
 
     private Set<String> role;
@@ -40,7 +40,7 @@ public class SignupRequest {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     public String getFirstName() {
         return firstName;
     }
@@ -64,9 +64,5 @@ public class SignupRequest {
     public void setRole(Set<String> role) {
         this.role = role;
     }
-
-    
-
-    
 
 }
