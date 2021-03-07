@@ -3,7 +3,9 @@ package com.spring.boot.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -26,17 +28,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 @Entity
-@Table(name = "users",uniqueConstraints = { 
-			@UniqueConstraint(columnNames = "email")},
-                catalog = "loothub", schema = "")
-@XmlRootElement
-@NamedQueries({
-    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
-    @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
-    @NamedQuery(name = "User.findByEmail", query = "SELECT u FROM User u WHERE u.email = :email"),
-    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
-    @NamedQuery(name = "User.findByFirstName", query = "SELECT u FROM User u WHERE u.firstName = :firstName"),
-    @NamedQuery(name = "User.findByLastName", query = "SELECT u FROM User u WHERE u.lastName = :lastName")})
+@Table(name = "users", uniqueConstraints = {
+    @UniqueConstraint(columnNames = "email")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -81,15 +74,13 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     @JsonIgnore
     private List<Orders> ordersList;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
-    @JsonIgnore
-    private Collection<Role> roles;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
     @Column(name = "reset_password_token")
     private String resetPasswordToken;
 
@@ -108,7 +99,7 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public User(String firstName, String lastName, String email, String password, Collection<Role> roles, Collection<ContactNumber> contactNumbers) {
+    public User(String firstName, String lastName, String email, String password, Set<Role> roles, Collection<ContactNumber> contactNumbers) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -207,7 +198,7 @@ public class User implements Serializable {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 

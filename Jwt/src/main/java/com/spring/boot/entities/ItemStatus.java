@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Dim.Kasimatis
  */
 @Entity
-@Table(name = "item_status", catalog = "loothub", schema = "")
+@Table(name = "item_status")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "ItemStatus.findAll", query = "SELECT i FROM ItemStatus i"),

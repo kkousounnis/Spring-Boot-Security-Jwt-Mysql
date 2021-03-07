@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.spring.boot.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,12 +21,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author Dim.Kasimatis
- */
 @Entity
-@Table(name = "user_addresses", catalog = "loothub", schema = "")
+@Table(name = "user_addresses")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "UserAddress.findAll", query = "SELECT u FROM UserAddress u"),
@@ -84,7 +75,7 @@ public class UserAddress implements Serializable {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "billingAddressId")
     private List<Orders> ordersList;
-     @JsonIgnore
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "shippingAddressId")
     private List<Orders> ordersList1;
 
@@ -114,9 +105,7 @@ public class UserAddress implements Serializable {
         this.streetNumber = streetNumber;
         this.postalCode = postalCode;
     }
-    
-    
-    
+
     public UserAddress(Integer id, String country, String city, int postalCode) {
         this.id = id;
         this.country = country;
@@ -248,8 +237,5 @@ public class UserAddress implements Serializable {
         sb.append('}');
         return sb.toString();
     }
-
-   
-    
 
 }

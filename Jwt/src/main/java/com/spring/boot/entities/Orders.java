@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Dim.Kasimatis
  */
 @Entity
-@Table(name = "orders", catalog = "loothub", schema = "")
+@Table(name = "orders")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Orders o"),
