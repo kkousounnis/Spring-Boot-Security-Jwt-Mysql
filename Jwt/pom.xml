@@ -84,6 +84,12 @@
             <version>2.0.1.Final</version>
             <type>jar</type>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.16</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
