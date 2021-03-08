@@ -9,9 +9,9 @@ public interface UserDao {
 
     public User findById(int id);
 
-    public boolean save(User user);
+    public User save(User user);
 
-    public boolean delete(int id);
+    public void delete(int id);
 
-    public boolean update(User user);
+    public User update(int id, User user);
 }
