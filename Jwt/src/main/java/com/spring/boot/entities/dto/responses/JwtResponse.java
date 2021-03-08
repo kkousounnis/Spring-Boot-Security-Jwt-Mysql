@@ -3,52 +3,53 @@ package com.spring.boot.entities.dto.responses;
 import java.util.List;
 
 public class JwtResponse {
-	private String token;
-	private String type = "Bearer";
-	private Integer id; 
-	private String email;
-	private List<String> roles;
 
-	public JwtResponse(String accessToken, Integer id, String email, List<String> roles) {
-		this.token = accessToken;
-		this.id = id; 
-		this.email = email;
-		this.roles = roles;
-	}
+    private String token;
+    private String type = "Bearer";
+    private Integer id;
+    private String email;
+    private List<String> roles;
 
-	public String getAccessToken() {
-		return token;
-	}
+    public JwtResponse(String accessToken, Integer id, String email, List<String> roles) {
+        this.token = accessToken;
+        this.id = id;
+        this.email = email;
+        this.roles = roles;
+    }
 
-	public void setAccessToken(String accessToken) {
-		this.token = accessToken;
-	}
+    public String getAccessToken() {
+        return token;
+    }
 
-	public String getTokenType() {
-		return type;
-	}
+    public void setAccessToken(String accessToken) {
+        this.token = accessToken;
+    }
 
-	public void setTokenType(String tokenType) {
-		this.type = tokenType;
-	}
+    public String getTokenType() {
+        return type;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setTokenType(String tokenType) {
+        this.type = tokenType;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public List<String> getRoles() {
-		return roles;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
 }
