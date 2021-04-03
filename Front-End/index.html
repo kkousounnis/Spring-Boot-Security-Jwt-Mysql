@@ -29,12 +29,13 @@
                     success: function (resultData) {
                         var token = resultData.accessToken;
                         console.log(token);
+                        
                         $.ajax({
                             type: 'GET',
                             url: 'http://localhost:8080/api/test/user',
-                            headers: { "Authorization": token },
+                            headers: { "Authorization": 'Bearer ' + token },
                             success: function (data) {
-                                $(location).attr('href', '/memberinfo')
+                                console.log("Success message");
                             }
                         });
                     }
