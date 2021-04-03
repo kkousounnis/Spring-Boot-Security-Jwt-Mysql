@@ -53,8 +53,13 @@
                     }),
                     success: function (resultData) {
                         var token = resultData.accessToken;
-                        console.log("Success Sign Up!!!");
+                        console.log("Success Sign Up!!!", resultData);
+                    },
+                    error: function (err) {
+                        console.log("AJAX error in request: " + JSON.stringify(err));
+                        console.log(JSON.stringify(err).message);
                     }
+
                 });
             });
         });
