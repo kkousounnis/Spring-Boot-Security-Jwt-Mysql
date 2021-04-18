@@ -220,8 +220,34 @@ $('#editAddress').on('show.bs.modal', function (event) {
     document.getElementById("streetNumber").value = parseInt(streetNumber);
     document.getElementById("postalCode").value = postalCode;
 });
+//test login in database through my UI
+$(document).ready(function () {
+    $("#signin").click(function () {
 
+        var token = ''
+        $.ajax({
+            type: 'POST',
+            url: 'http://localhost:8080/api/auth/signin',
+            dataType: 'json',
+            contentType: "application/json",
+            data: JSON.stringify({ "username": "kwstas1998@gmail.com", "password": "K!1234" }),
+            success: function (resultData) {
+                var token = resultData.accessToken;
+                console.log(token);
 
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://localhost:8080/api/test/user',
+                    headers: { "Authorization": 'Bearer ' + token },
+                    success: function (data) {
+                        
+                        console.log("Success message", data);
+                    }
+                });
+            }
+        });
+    });
+});
 
 
 
