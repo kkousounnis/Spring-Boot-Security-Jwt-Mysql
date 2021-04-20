@@ -10,12 +10,13 @@ public class BootApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-
+        
         return application.sources(BootApplication.class);
 
     }
 
     public static void main(String[] args) {
+        System.setProperty("server.servlet.context-path","/javahungry");
         SpringApplication.run(BootApplication.class, args);
     }
 

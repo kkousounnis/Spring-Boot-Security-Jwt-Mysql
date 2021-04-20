@@ -1,6 +1,11 @@
 package com.spring.boot.config;
 
+import static javax.management.Query.gt;
+import static org.hibernate.criterion.Restrictions.gt;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -20,4 +25,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .maxAge(MAX_AGE_SECS);
     }
+   
 }
