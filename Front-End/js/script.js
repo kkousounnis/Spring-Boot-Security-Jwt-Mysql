@@ -3,28 +3,28 @@ $(document).ready(function () {
 
 
     $(".card").hover(
-            function () {
-                $(this).addClass('shadow-lg').css('cursor', 'pointer');
-            }, function () {
-        $(this).removeClass('shadow-lg');
-    }
+        function () {
+            $(this).addClass('shadow-lg').css('cursor', 'pointer');
+        }, function () {
+            $(this).removeClass('shadow-lg');
+        }
     );
 
 
     $("#search").hover(
-            function () {
-                $(this).css("background-color", "rgb(33, 182, 231)");
-            }, function () {
-        $(this).css("background-color", " rgb(88,203,241)");
-    }
+        function () {
+            $(this).css("background-color", "rgb(33, 182, 231)");
+        }, function () {
+            $(this).css("background-color", " rgb(88,203,241)");
+        }
     );
 
     $("#searchbar").hover(
-            function () {
-                $(this).css("border-color", "rgb(33, 182, 231)");
-            }, function () {
-        $(this).css("border-color", "");
-    }
+        function () {
+            $(this).css("border-color", "rgb(33, 182, 231)");
+        }, function () {
+            $(this).css("border-color", "");
+        }
     );
 
     // document ready  
@@ -138,7 +138,7 @@ $(document).ready(function () {
 
                     return actions.order.create({
 
-                        purchase_units: [{"amount": {"currency_code": "EUR", "value": parseFloat(productPrice.replace(/,/g, ''))}}]
+                        purchase_units: [{ "amount": { "currency_code": "EUR", "value": parseFloat(productPrice.replace(/,/g, '')) } }]
 
                     });
                 },
@@ -200,8 +200,8 @@ $(document).ready(function () {
 $(document).ready(function () {
     if (window.location.pathname.includes('/profile')) {
         document.getElementById("id").style.display = "none";
-        
-}
+
+    }
 });
 
 $('#editAddress').on('show.bs.modal', function (event) {
@@ -212,7 +212,7 @@ $('#editAddress').on('show.bs.modal', function (event) {
     let streetName = button.data('streetn'); // Extract info from data-* attributes
     let streetNumber = button.data('streetnu'); // Extract info from data-* attributes
     let postalCode = button.data('postal'); // Extract info from data-* attributes
-    
+
     document.getElementById("id").value = id;
     document.getElementById("country").value = country;
     document.getElementById("city").value = city;
@@ -240,7 +240,7 @@ $(document).ready(function () {
                     url: 'http://localhost:8080/api/test/user',
                     headers: { "Authorization": 'Bearer ' + token },
                     success: function (data) {
-                        
+
                         console.log("Success message", data);
                     }
                 });
@@ -248,6 +248,3 @@ $(document).ready(function () {
         });
     });
 });
-
-
-

@@ -202,3 +202,11 @@ label.error {
 #popupsignin{
     display: none;
 }
+
+.alert{
+    display: none;
+}
+
+.text-danger{
+    display: none;
+}
